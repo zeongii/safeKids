@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "checkItem")
 public class CheckItemEntity {
 
     @Id
@@ -22,4 +23,8 @@ public class CheckItemEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "period_id")
     private PeriodEntity period;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "facility_id")
+    private FacilityEntity facility;
 }

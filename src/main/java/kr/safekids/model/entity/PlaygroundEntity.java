@@ -16,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "playground")
 public class PlaygroundEntity {
 
     @Id
@@ -38,7 +39,7 @@ public class PlaygroundEntity {
     @JoinColumn(name = "employee_id")
     private EmployeeEntity employee;
 
-    @OneToMany(mappedBy = "facility", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "playground", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<FacilityListEntity> facilityListEntities = new ArrayList<>();
 

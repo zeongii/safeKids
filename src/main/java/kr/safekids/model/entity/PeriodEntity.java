@@ -15,13 +15,14 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "period")
 public class PeriodEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String condition;
+    private String status;
 
     @OneToMany(mappedBy = "period", cascade = CascadeType.ALL)
     @JsonManagedReference

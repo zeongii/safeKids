@@ -1,5 +1,6 @@
 package kr.safekids.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "checkItem")
+@Table(name = "check_item")
 public class CheckItemEntity {
 
     @Id
@@ -24,5 +25,6 @@ public class CheckItemEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
+    @JsonBackReference
     private FacilityEntity facility;
 }

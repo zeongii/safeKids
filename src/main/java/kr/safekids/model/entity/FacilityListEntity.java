@@ -1,5 +1,6 @@
 package kr.safekids.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,10 +25,12 @@ public class FacilityListEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
+    @JsonBackReference
     private FacilityEntity facility;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "playground_id")
+    @JsonBackReference
     private PlaygroundEntity playground;
 
 

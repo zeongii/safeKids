@@ -1,5 +1,6 @@
 package kr.safekids.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,15 +34,21 @@ public class PlaygroundEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id")
+    @JsonBackReference
     private PlaceEntity place;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
+    @JsonBackReference
     private EmployeeEntity employee;
 
     @OneToMany(mappedBy = "playground", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<FacilityListEntity> facilityListEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "playground", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<ScheduleEntity> scheduleEntities = new ArrayList<>();
 
 
 

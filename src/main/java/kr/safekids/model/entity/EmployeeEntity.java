@@ -1,5 +1,6 @@
 package kr.safekids.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class EmployeeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")  // FK 설정
+    @JsonBackReference
     private UserEntity user;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)

@@ -1,11 +1,12 @@
 package kr.safekids.model.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
 
 @Data
-@Component
+@Builder
 public class ScheduleModel {
     private Long id;
     private String code;

@@ -26,8 +26,13 @@ public class CheckItemController {
     }
 
     @GetMapping("/MCheckItem/")
-    public ResponseEntity<List<?>> monthItem() {
-        return ResponseEntity.ok(checkItemService.findMonthItem());
+    public ResponseEntity<List<?>> monthlyItem() {
+        return ResponseEntity.ok(checkItemService.findMonthlyItem("M"));
+    }
+
+    @GetMapping("/WCheckItem/")
+    public ResponseEntity<List<?>> weeklyItem() {
+        return ResponseEntity.ok(checkItemService.findWeeklyItem("M"));
     }
 
 

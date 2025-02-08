@@ -18,7 +18,15 @@ public class CheckItemServiceImpl implements CheckItemService {
     }
 
     @Override
-    public List<CheckItemEntity> findMonthItem() {
-        return List.of();
+    public List<CheckItemEntity> findMonthlyItem(String period) {
+        List<CheckItemEntity> monthlyItems = checkItemRepository.findByPeriod(period);
+        return monthlyItems;
+
+    }
+
+    @Override
+    public List<CheckItemEntity> findWeeklyItem(String period) {
+        List<CheckItemEntity> weeklyItems = checkItemRepository.findByPeriod(period);
+        return weeklyItems;
     }
 }

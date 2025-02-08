@@ -20,9 +20,7 @@ public class ScheduleEntity {
 
     private String code;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "period_id")
-    private PeriodEntity period;
+    private String period;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")

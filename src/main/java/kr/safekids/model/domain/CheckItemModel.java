@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 public class CheckItemModel {
     private Long id;
     private String content;
-    private Long periodId;
+    private String period;
 }

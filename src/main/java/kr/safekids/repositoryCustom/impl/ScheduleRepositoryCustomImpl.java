@@ -26,11 +26,12 @@ public class ScheduleRepositoryCustomImpl implements ScheduleRepositoryCustom {
 
         return jpaQueryFactory
                 .selectFrom(schedule)
-                .innerJoin(playground).on(schedule.playground.eq(playground))
-                .innerJoin(facilityList).on(facilityList.playground.eq(playground))
+                .innerJoin(playground).on(playground.id.eq(schedule.playground.id))
+                .innerJoin(facilityList).on(playground.id.eq(facilityList.playground.id))
                 .innerJoin(checkItem).on(checkItem.facility.eq(facilityList.facility))
                 .where(
                         schedule.period.eq(checkItem.period),
+                        playground.employee.id.eq(userId),
                         schedule.code.like("%D1%")
                 )
                 .fetch();

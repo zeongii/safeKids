@@ -5,17 +5,20 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-
 @Data
 @Component
-public class UserModel {
+public class RiskscanModel {
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String phone;
-    private LocalDateTime entryDate;
-    private Boolean isActive;
-    private String role;
 
+    private String content;
+
+    private LocalDateTime entryDate;
+
+    private String checkStatus;
+
+    private Long checkItemId;
+
+    private Long playgroundId;
+
+    private Long scheduleId;
 }

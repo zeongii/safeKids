@@ -25,8 +25,6 @@ public class EmployeeEntity {
 
     private String role;
 
-    private Long teamId;
-
     private Long groupId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -34,9 +32,21 @@ public class EmployeeEntity {
     @JsonBackReference
     private UserEntity user;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<ScheduleEntity> employeeEntities = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    @JsonBackReference
+    private TeamEntity team;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    @JsonBackReference
+    private DepartmentEntity department;
+
+
+
+
+
+
 
 
 

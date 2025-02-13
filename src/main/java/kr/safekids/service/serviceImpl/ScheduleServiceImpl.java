@@ -22,6 +22,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public List<ScheduleEntity> findWeeklySchedule(Long userId) {
+
+
         return List.of();
     }
 

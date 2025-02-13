@@ -3,12 +3,15 @@ package kr.safekids.model.domain;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 
 @Data
 @Component
-public class TeamModel {
+public class InspectionModel {
     private Long id;
-    private String teamName;
-    private Boolean isActive;
 
+    private String feedback;
+
+    private LocalDateTime dueDate;
 }
+

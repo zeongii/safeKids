@@ -15,8 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "place")
-public class PlaceEntity {
+public class DepartmentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +23,14 @@ public class PlaceEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
+    private Boolean isActive;
+
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<PlaygroundEntity> playgroundEntities = new ArrayList<>();
+    private List<EmployeeEntity> employeeEntities = new ArrayList<>();
+
+
+
+
 }

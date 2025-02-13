@@ -32,15 +32,19 @@ public class PlaygroundEntity {
 
     private Boolean isActive;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "place_id")
-    @JsonBackReference
-    private PlaceEntity place;
+    private String District;
+
+    private String City;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "user_id")
     @JsonBackReference
-    private EmployeeEntity employee;
+    private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    @JsonBackReference
+    private TeamEntity team;
 
     @OneToMany(mappedBy = "playground", cascade = CascadeType.ALL)
     @JsonManagedReference

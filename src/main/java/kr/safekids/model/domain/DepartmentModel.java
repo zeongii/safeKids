@@ -5,7 +5,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-public class PlaceModel {
+public class DepartmentModel {
     private Long id;
     private String name;
+    private Boolean isActive;
 }

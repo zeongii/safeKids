@@ -38,9 +38,15 @@ public class UserEntity {
 
     private Boolean isActive;
 
+    private String role;
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<EmployeeEntity> employeeEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<PlaygroundEntity> playgroundEntities = new ArrayList<>();
 
 }

@@ -8,6 +8,6 @@ public interface ScheduleRepositoryCustom {
 
     List<ScheduleEntity> findDailyByEmployeeId(Long userId);
 
-    List<ScheduleEntity> findMonthlyByEmployeeId(Long userId);
+    List<ScheduleEntity> findWeeklyByEmployeeId(Long userId);
 
 }

@@ -1,8 +1,15 @@
 package kr.safekids.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import kr.safekids.model.entity.TeamEntity;
+import kr.safekids.model.entity.UserEntity;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,8 +20,11 @@ public class PlaygroundModel {
     private String address;
     private LocalDateTime InstallationDate;
     private Boolean isActive;
-    private Long placeId;
-    private Long employeeId;
+    private String District;
+    private String City;
+    private Long userId;
+    private Long teamId;
+
 
 
 }

@@ -13,6 +13,6 @@ public interface ScheduleService {
 
     List<ScheduleEntity> findMonthlySchedule(Long userId);
 
-    Long save(ScheduleModel scheduleModel);
+    ScheduleEntity save(ScheduleModel scheduleModel);
 
 }

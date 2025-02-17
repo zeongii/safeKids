@@ -2,16 +2,19 @@ package kr.safekids.controller;
 
 import kr.safekids.model.domain.ScheduleModel;
 import kr.safekids.service.ScheduleService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Schedule/")
+@RequestMapping("/api/schedule/")
+@RequiredArgsConstructor
+@CrossOrigin
 public class ScheduleController {
 
-    private ScheduleService scheduleService;
+    private final ScheduleService scheduleService;
 
     @GetMapping("showWeeklySchedule/{userId}")
     public ResponseEntity<List<?>> weeklySchedule (@PathVariable Long userId) {

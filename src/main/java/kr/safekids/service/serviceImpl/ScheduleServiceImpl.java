@@ -33,13 +33,10 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
-    public Long save(ScheduleModel scheduleModel) {
+    public ScheduleEntity save(ScheduleModel scheduleModel) {
         EmployeeEntity Employee = employeeRepository.findById(scheduleModel.getEmployeeId()).orElse(null);
 
         ScheduleEntity scheduleEntity = ScheduleEntity.toScheduleEntity(scheduleModel, Employee);
-        ScheduleEntity schedule = scheduleRepository.save(scheduleEntity);
-
-        return schedule.getId();
-
+        return scheduleRepository.save(scheduleEntity);
     }
 }

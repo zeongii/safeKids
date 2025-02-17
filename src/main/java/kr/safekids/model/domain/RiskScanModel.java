@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Component
-public class RiskscanModel {
+public class RiskScanModel {
     private Long id;
 
     private String content;

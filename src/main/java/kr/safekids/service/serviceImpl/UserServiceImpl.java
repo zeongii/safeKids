@@ -1,10 +1,13 @@
 package kr.safekids.service.serviceImpl;
 
+import kr.safekids.model.domain.CustomUserDetails;
 import kr.safekids.model.domain.UserModel;
 import kr.safekids.model.entity.UserEntity;
 import kr.safekids.repository.UserRepository;
 import kr.safekids.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +47,16 @@ public class UserServiceImpl implements UserService {
             return true;
         }
 
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userData = userRepository.findByUsername(username);
+
+        if (userData != null) {
+            return new CustomUserDetails(userData);
+        }
+
+        return null;
     }
 }
